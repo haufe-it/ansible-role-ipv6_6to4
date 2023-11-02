@@ -1,0 +1,17 @@
+---
+- name: Ensure ip(1) is installed
+  ansible.builtin.apt:
+    name:
+      - iproute2
+    state: present
+
+- name: Create interface configuration
+  ansible.builtin.template:
+    src: interface-6to4.j2
+    dest: /etc/network/interfaces.d/6to4
+    mode: "0644"
+    owner: root
+    group: root
+  notify:
+    - Restart 6to4 interface
+...

@@ -1,0 +1,5 @@
+# {{ ansible_managed }}
+auto 6to4
+iface 6to4 inet6 v4tunnel
+  local {{ public_ipv4 }}
+  post-up ip -6 route delete 2000::/3 via ::192.88.99.1 dev 6to4
