@@ -7,12 +7,12 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+  test:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install ansible-lint
-        run: sudo apt-get -oInstall-Recommends=false install ansible-lint
+      - uses: actions/checkout@v4
       - name: Run ansible-lint
-        run: ansible-lint --profile production --strict .
+        uses: ansible/ansible-lint@v6
   publish:
     runs-on: ubuntu-latest
     steps:
