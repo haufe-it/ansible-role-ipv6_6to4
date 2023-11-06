@@ -1,7 +1,18 @@
 ---
 name: ansible-galaxy-publish
-on: [push]
+on:
+  push:
+    tags:
+      - v*
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install ansible-lint
+        run: sudo apt-get -oInstall-Recommends=false install ansible-lint
+      - name: Run ansible-lint
+        run: ansible-lint --profile production --strict .
   publish:
     runs-on: ubuntu-latest
     steps:
