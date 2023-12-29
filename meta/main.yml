@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   role_name: ipv6_6to4
-  namespace: haufe_it
+  namespace: haufe-it
   author: Jakob Haufe
   description: Configure 6to4 on a machine having a public IPv4 address
   company: haufe.it
